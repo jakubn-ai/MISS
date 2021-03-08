@@ -1,0 +1,4 @@
+/.vscode/
+/cache
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
