@@ -1,12 +1,13 @@
-from model.Graph import Graph
-from model.Vehicle import Vehicle
 import simpy
 
+from model.Graph import Graph
+from model.Vehicle import Vehicle
+
 if __name__ == '__main__':
-    env = simpy.Environment()
+    env = simpy.rt.RealtimeEnvironment()
     graph = Graph()
 
     vehicle = Vehicle(env, 1, graph.start_node, graph.end_node, graph)
     vehicle2 = Vehicle(env, 2, graph.start_node, graph.end_node, graph)
 
-    env.run(until=60)
+    env.run(until=120)
