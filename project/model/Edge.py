@@ -7,8 +7,7 @@ class EdgeType(Enum):
 
 
 class Edge:
-    def __init__(self, edge_type, source_node, dest_node, distance):
-        self.type = edge_type
+    def __init__(self, source_node, dest_node, distance):
         self.sourceNode = source_node
         self.destNode = dest_node
         self.distance = distance
