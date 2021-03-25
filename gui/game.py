@@ -4,6 +4,7 @@ import threading
 import pygame
 import sys
 from car import Car
+from road import Road
 
 
 class Game(object):
@@ -20,7 +21,8 @@ class Game(object):
 		self.tps_clock = pygame.time.Clock()
 		self.tps_delta = 0.0
 		self.cars = []
-		self.add_car()
+		self.road = Road(self)
+		self.spawn_car(self.road.position_s4_line)
 
 		while True:
 
@@ -45,18 +47,13 @@ class Game(object):
 
 	def tick(self):
 		list(map(lambda x: x.tick(), self.cars))
-		#self.cars[0].tick()
-		#for car in self.cars:
-		#	car.tick()
 
 	def draw(self):
+		self.road.draw()
 		list(map(lambda x: x.draw(), self.cars))
-		#self.cars[0].draw()
-		#for car in self.cars:
-		#	car.draw()
 
-	def add_car(self):
-		car = Car(self)
+	def spawn_car(self, position):
+		car = Car(self, position)
 		self.cars.append(car)
         
 

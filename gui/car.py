@@ -3,17 +3,16 @@ from pygame.math import Vector2
 
 class Car(object):
 
-	def __init__(self, game):
+	def __init__(self, game, position):
 
 		#Init
 		self.game = game
-		self.size = self.game.screen.get_size()
-		self.position = Vector2(self.size[0]/2, self.size[1]/2) # pixel
+		self.size = (8,8)
+		self.position = position
 		self.velocity = Vector2(0, 0) # pixel per sec [p/s]
 		self.acceleration = Vector2(0, 0) # pixel^2 per sec [p^2/s] 
 		self.speed = 1.3
 		
-
 	def add_force(self, force):
 		self.acceleration += force
 
@@ -33,11 +32,12 @@ class Car(object):
 		# Phisics
 		self.velocity *= 0.8
 		self.velocity += self.acceleration
+
 		self.position += self.velocity
 		self.acceleration *= 0
 
 	def draw(self):
 
 		#Drawing
-		rect = pygame.Rect(self.position.x, self.position.y, 10, 10)
-		pygame.draw.rect(self.game.screen, (0, 150, 255), rect)
+		rect = pygame.Rect(self.position.x, self.position.y, self.size[0], self.size[1])
+		pygame.draw.rect(self.game.screen, (0, 0, 255), rect)
