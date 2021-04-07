@@ -11,7 +11,7 @@ class Car(object):
 		self.position = position
 		self.velocity = Vector2(0, 0) # pixel per sec [p/s]
 		self.acceleration = Vector2(0, 0) # pixel^2 per sec [p^2/s] 
-		self.speed = 1.3
+		self.speed = 1
 		
 	def add_force(self, force):
 		self.acceleration += force
@@ -32,9 +32,23 @@ class Car(object):
 		# Phisics
 		self.velocity *= 0.8
 		self.velocity += self.acceleration
+		old_position = self.position
+		new_position = self.position + self.velocity
+  
+		print(new_position.x, new_position.y)
+  
+		if (self.game.map.board[int(new_position.x)][int(new_position.y)] != 1):
+			self.position = old_position
+		else:
+			self.position = new_position
+			
+			
+   
+		self.position = Vector2(list(map(lambda x: round(x), self.position)))
+		#print("VAULE: ", self.game.map.board[int(self.position.x) - 1][int(self.position.y) - 1])
+		self.acceleration *= 0.0
 
-		self.position += self.velocity
-		self.acceleration *= 0
+  
 
 	def draw(self):
 

@@ -5,6 +5,7 @@ import pygame
 import sys
 from car import Car
 from road import Road
+from map import Map
 
 
 class Game(object):
@@ -22,7 +23,9 @@ class Game(object):
 		self.tps_delta = 0.0
 		self.cars = []
 		self.road = Road(self)
-		self.spawn_car(self.road.position_s4_line)
+		self.map = Map(self)
+		print(self.map.board)
+		self.spawn_car(self.road.position_s2_line)
 
 		while True:
 
