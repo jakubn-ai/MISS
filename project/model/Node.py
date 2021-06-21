@@ -6,6 +6,7 @@ from model.Edge import Road
 class NodeType(Enum):
     basic = 1
     fork = 2
+    traffic_light = 3
 
 
 class Node:
@@ -19,3 +20,7 @@ class Node:
 
     def __str__(self):
         return str(self.id)
+
+    def __repr__(self):
+        return self.__str__()
+
