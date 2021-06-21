@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import numpy
 
 import simpy
+import time
 
 from model.Graph import Graph
 from model.TrafficLightManager import TrafficLightManager

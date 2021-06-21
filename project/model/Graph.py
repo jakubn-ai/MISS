@@ -1,6 +1,5 @@
 from model.Node import Node, NodeType
 
-
 class Graph:
     def __init__(self, traffic_manager):
         self.trafficManager = traffic_manager
