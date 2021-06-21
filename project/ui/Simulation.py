@@ -57,7 +57,7 @@ def updateValues():
 def generateVehicles():
     car_value = 0
     while len(S.vehicles['right'][0]) + len(S.vehicles['down'][0]) + len(S.vehicles['left'][0]) + len(S.vehicles['up'][0]) < 100:
-        vehicle_type = 3
+        vehicle_type = random.randint(0,3)
         will_turn = 0
         temp = random.randint(0,99)
         if temp < 40:
